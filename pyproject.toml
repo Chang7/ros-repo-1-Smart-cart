@@ -1,0 +1,16 @@
+[tool.ruff]
+line-length = 100
+exclude = [
+  ".git",
+  ".venv",
+  "__pycache__",
+  "robot/jazzy_ws/build",
+  "robot/jazzy_ws/install",
+  "robot/jazzy_ws/log",
+  "test_yw/install",
+]
+
+[tool.ruff.lint]
+# Keep CI focused on errors that are likely to break execution.
+# Style-only cleanup can be handled separately after the demo flow is stable.
+select = ["E9", "F63", "F7", "F82"]
