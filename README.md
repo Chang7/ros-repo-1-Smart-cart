@@ -92,6 +92,28 @@ ros2 launch office_robot_bringup bringup.launch.py \
 
 자세한 개발 우선순위는 `DEVELOPMENT_PLAN.md`를 참고하세요.
 
+## 로봇 없이 로컬 시뮬레이션
+
+실제 로봇, ROS, rosbridge 없이 서버가 로봇에게 보낼 명령 payload와 상태 콜백 흐름을 검증할 수 있습니다.
+
+```bash
+python scripts/simulate_mock_robot.py
+```
+
+pytest 기반 테스트:
+
+```bash
+python -m pytest -q tests/test_mock_robot_communicator.py
+```
+
+이 검증은 다음을 확인합니다.
+
+- action sequence 기록
+- obstacle info publish 기록
+- employee recognition result publish 기록
+- fake robot status callback 처리
+- cancel task 기록
+
 ## 주의사항
 
 - `.env`, DB 비밀번호, API key, SSH key 등 민감정보는 커밋하지 마세요.
